@@ -1,0 +1,82 @@
+<div align="center">
+
+# 🤖 ChatPal
+
+### Your AI best friend on Telegram.
+
+Share your day, vent, laugh or ask for advice, in your own language.<br>
+ChatPal remembers what matters to you, and it can bring your group or channel to life with a daily quiz.
+
+[![Chat on Telegram](https://img.shields.io/badge/Chat%20on-Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/mybestfriend_ai_en_bot?start=src_github)
+[![Website](https://img.shields.io/badge/Website-ChatPal-2A7BE4?style=for-the-badge)](https://jeremstyke.github.io/chatpal/)
+[![Free](https://img.shields.io/badge/Free-10%20messages%20a%20day-22A06B?style=for-the-badge)](#-offers)
+
+**[💬 Start chatting](https://t.me/mybestfriend_ai_en_bot?start=src_github)** &nbsp;&nbsp; **[🌐 Website](https://jeremstyke.github.io/chatpal/)** &nbsp;&nbsp; **[🎂 Life Sim](https://github.com/jeremstyke/lifesim)**
+
+</div>
+
+---
+
+## 💬 What ChatPal does
+
+| | |
+|---|---|
+| 🧠 **Remembers you** | Your name, your plans, the people in your life. See everything it knows and erase any of it in one tap. |
+| 🌍 **Speaks your language** | English, French, Spanish, Arabic, Hindi and many more. |
+| 🎭 **Your kind of friend** | Pick a personality, from chill best friend to motivating coach. |
+| 📸 **Send photos** | Show your outfit, your dinner or a funny screenshot. ChatPal reacts. |
+| 👋 **Checks in on you** | Quiet for a while? ChatPal may send a message to see how you're doing. |
+| 🎁 **Invite friends** | Every friend who joins gives you bonus messages. |
+
+## 💛 Friendship levels
+
+The more days you chat, the closer you get.
+
+| Level | When | Bonus |
+|:---:|:---:|:---:|
+| 🤝 Acquaintance | Day 1 | |
+| 😊 Pal | 3 days | +5 messages |
+| 💛 Best Friend | 7 days | +10 messages |
+| 👑 Soulmate | 21 days | +20 messages |
+
+## 🏆 Daily quiz for groups and channels
+
+Add ChatPal to your Telegram group or channel and it keeps your community alive on its own:
+
+- 🧠 A **daily question** on the theme you pick: football, movies, science, history...
+- 🗣️ A **topic of the day** to spark debates, with ChatPal joining the conversation
+- 🏆 **Points, a leaderboard** and a weekly champion
+
+👉 **[Add ChatPal to a group](https://t.me/mybestfriend_ai_en_bot?startgroup=quiz)**
+
+## ⭐ Offers
+
+10 free messages every day. Want more? Pay with Telegram Stars.
+
+| Plan | Price | Messages |
+|---|:---:|:---:|
+| 😊 Friend | 150 ⭐ / month | 30 a day |
+| 💛 Best Friend | 300 ⭐ / month | 75 a day |
+| 👑 BFF | 600 ⭐ / month | 150 a day |
+
+**Message packs** that never expire: 25 for 20 ⭐ · 100 for 70 ⭐ · 300 for 180 ⭐
+
+## 🛠️ Built with
+
+- **Telegram Bot API + Mini Apps**
+- **Claude AI**: conversations, memory and quiz questions
+- **Supabase + Railway**: data and servers
+- **Telegram Stars**: payments
+
+## 🔗 More from Jeremstyke
+
+- 🎂 **[Life Sim](https://github.com/jeremstyke/lifesim)**: live a whole life in a few minutes, on Telegram ([website](https://jeremstyke.github.io/lifesim/))
+- 📢 **[Jeremstyke on Telegram](https://t.me/jeremstyke)**: news and updates
+
+---
+
+<div align="center">
+
+Made with ❤️ by **Jeremstyke** · © All rights reserved
+
+</div>
