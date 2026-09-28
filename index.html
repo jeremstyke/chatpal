@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatPal - Your AI best friend on Telegram</title>
+<meta name="description" content="ChatPal is an AI best friend on Telegram. Chat anytime in your language, it remembers what matters to you, and it can run a daily quiz in your group or channel.">
+<meta property="og:title" content="ChatPal - Your AI best friend on Telegram">
+<meta property="og:description" content="Chat anytime, in your language. ChatPal remembers what matters to you.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #EEF6FF;
+    --blue: #2A7BE4;
+    --navy: #14284B;
+    --mint: #DDF6EA;
+    --coral: #FF6B6B;
+    --ink: #172237;
+    --soft: #5B6B85;
+    --gold: #F5B400;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #fff; color: var(--ink); font: 400 17px/1.6 'Nunito', system-ui, sans-serif; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: 'Outfit', 'Nunito', sans-serif; line-height: 1.1; margin: 0; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; border-radius: 8px; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 22px; text-decoration: none; }
+  .brand span { font-size: 28px; }
+  .top nav a { margin-left: 22px; text-decoration: none; font-weight: 600; color: var(--soft); }
+  .top nav a:hover { color: var(--blue); }
+
+  /* Hero with a live conversation */
+  .hero-bg { background: var(--sky); }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 40px 24px 80px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 66px); font-weight: 700; color: var(--navy); }
+  .hero p { font-size: 20px; color: var(--soft); max-width: 28em; margin: 20px 0 32px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: #fff; text-decoration: none; font-weight: 800; font-size: 18px; padding: 16px 28px; border-radius: 999px; box-shadow: 0 10px 28px -12px var(--blue); transition: transform .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn svg { width: 22px; height: 22px; }
+  .btn.ghost { background: transparent; color: var(--blue); box-shadow: none; border: 2px solid var(--blue); }
+  .note { display: block; margin-top: 14px; font-size: 14px; color: var(--soft); }
+
+  .chat { background: #fff; border-radius: 28px; padding: 22px; box-shadow: 0 30px 60px -34px rgba(20,40,75,.45); max-width: 420px; justify-self: center; width: 100%; }
+  .chat-head { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #e8eef7; margin-bottom: 14px; }
+  .chat-av { width: 44px; height: 44px; border-radius: 50%; background: var(--sky); display: grid; place-items: center; font-size: 26px; }
+  .chat-name { font-weight: 800; }
+  .chat-status { font-size: 13px; color: #22a06b; }
+  .msg { max-width: 82%; padding: 10px 14px; border-radius: 18px; margin: 8px 0; font-size: 15px; line-height: 1.45; }
+  .msg.me { margin-left: auto; background: var(--blue); color: #fff; border-bottom-right-radius: 6px; }
+  .msg.pal { background: var(--mint); border-bottom-left-radius: 6px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .msg { opacity: 0; transform: translateY(8px); animation: pop .35s ease forwards; }
+    .msg:nth-of-type(2) { animation-delay: .9s; } .msg:nth-of-type(3) { animation-delay: 2.1s; }
+    .msg:nth-of-type(4) { animation-delay: 3.1s; } .msg:nth-of-type(5) { animation-delay: 4.3s; }
+    @keyframes pop { to { opacity: 1; transform: none; } }
+  }
+
+  /* What it does */
+  .what { padding: 80px 24px 40px; }
+  .what h2, .levels h2, .quiz h2, .price h2 { font-size: clamp(30px, 4vw, 44px); color: var(--navy); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-top: 40px; }
+  .grid .ic { font-size: 40px; }
+  .grid h3 { font-size: 21px; color: var(--navy); margin-top: 10px; }
+  .grid p { color: var(--soft); margin: 6px 0 0; }
+
+  /* Friendship levels: a real progression */
+  .levels { padding: 60px 24px; }
+  .levels .lead { color: var(--soft); max-width: 34em; margin: 12px 0 34px; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .step { border: 2px solid #e3ecf8; border-radius: 22px; padding: 20px; background: #fff; }
+  .step .e { font-size: 38px; }
+  .step h3 { font-size: 20px; margin-top: 8px; color: var(--navy); }
+  .step .d { font-size: 14px; color: var(--soft); margin-top: 4px; }
+  .step .b { display: inline-block; margin-top: 10px; font-weight: 800; font-size: 13px; color: #1a8a5a; background: var(--mint); border-radius: 999px; padding: 3px 10px; }
+  .step.top-step { border-color: var(--gold); }
+
+  /* Quiz for groups and channels */
+  .quiz-bg { background: var(--navy); color: #fff; }
+  .quiz { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 72px 24px; }
+  .quiz h2 { color: #fff; }
+  .quiz p { color: #c3d0e6; }
+  .quiz ul { padding: 0; list-style: none; margin: 20px 0 30px; }
+  .quiz li { margin: 10px 0; color: #e3eaf6; }
+  .post { background: #1F3A66; border-radius: 22px; padding: 20px; font-size: 15px; }
+  .post .q { font-weight: 800; margin: 8px 0 12px; }
+  .post .o { display: block; background: #2A4C82; border-radius: 12px; padding: 9px 12px; margin: 6px 0; }
+  .post .o.ok { background: #1f8a5b; }
+  .post .f { font-size: 13px; color: #c3d0e6; margin-top: 10px; font-style: italic; }
+
+  /* Offers */
+  .price { padding: 80px 24px 40px; }
+  .price .lead { color: var(--soft); margin: 12px 0 34px; max-width: 34em; }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .plan { border: 2px solid #e3ecf8; border-radius: 22px; padding: 22px; }
+  .plan h3 { font-size: 22px; color: var(--navy); }
+  .plan .p { font-family: 'Outfit', sans-serif; font-size: 30px; font-weight: 700; margin: 8px 0 2px; }
+  .plan .p small { font-size: 15px; color: var(--soft); font-weight: 600; }
+  .plan .d { color: var(--soft); font-size: 15px; }
+  .plan.best { border-color: var(--blue); background: var(--sky); }
+  .packs { margin-top: 18px; color: var(--soft); font-size: 15px; }
+  .packs b { color: var(--ink); }
+
+  .cta { text-align: center; padding: 72px 24px; }
+  .cta h2 { font-size: clamp(30px, 4vw, 46px); color: var(--navy); }
+  .cta p { color: var(--soft); margin: 12px auto 30px; max-width: 30em; }
+
+  .also { padding: 20px 24px 64px; }
+  .card { display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center; border-radius: 24px; padding: 26px; background: #2A1450; color: #fff; }
+  .card .big { font-size: 52px; }
+  .card h3 { font-size: 24px; }
+  .card p { margin: 4px 0 0; color: #CFC2EE; }
+  .card a.go { text-decoration: none; font-weight: 800; background: #FFB21E; color: #2A1450; padding: 12px 20px; border-radius: 999px; white-space: nowrap; }
+
+  footer { padding: 28px 0 40px; color: var(--soft); font-size: 14px; border-top: 1px solid #e3ecf8; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
+  footer a { text-decoration: none; font-weight: 700; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+
+  @media (max-width: 860px) {
+    .hero, .quiz { grid-template-columns: 1fr; }
+    .top nav { display: none; }
+    .grid, .plans { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .card { grid-template-columns: 1fr; text-align: center; }
+    .card .go { justify-self: center; }
+  }
+</style>
+</head>
+<body>
+<div class="hero-bg">
+  <header class="wrap top">
+    <a class="brand" href="#"><span>🤖</span> ChatPal</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#quiz">Group quiz</a>
+      <a href="#offers">Offers</a>
+      <a href="https://jeremstyke.github.io/lifesim/">Life Sim</a>
+    </nav>
+  </header>
+
+  <section class="wrap hero">
+    <div>
+      <h1>A friend who's always there to talk.</h1>
+      <p>ChatPal is an AI best friend on Telegram. Share your day, vent, laugh or ask for advice, in your own language. It remembers what matters to you.</p>
+      <a class="btn" href="https://t.me/mybestfriend_ai_en_bot?start=src_site">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.8 15.2 9.6 19c.4 0 .6-.2.8-.4l1.9-1.8 4 2.9c.7.4 1.3.2 1.5-.7l2.7-12.6c.3-1.1-.4-1.6-1.1-1.3L3.6 10.9c-1.1.4-1 1-.2 1.3l4 1.2 9.3-5.9c.4-.3.8-.1.5.2l-7.4 7.5z"/></svg>
+        Chat with ChatPal
+      </a>
+      <span class="note">Free, 10 messages a day. Works right inside Telegram.</span>
+    </div>
+
+    <div class="chat" role="img" aria-label="An example conversation with ChatPal">
+      <div class="chat-head">
+        <div class="chat-av">🤖</div>
+        <div><div class="chat-name">ChatPal</div><div class="chat-status">online</div></div>
+      </div>
+      <div class="msg me">ugh, rough day at work 😩</div>
+      <div class="msg pal">Oh no 😕 Was it the presentation you were stressing about on Monday?</div>
+      <div class="msg me">yes... my boss cut me off in front of everyone</div>
+      <div class="msg pal">That's really frustrating, especially after all the work you put in. Want to vent first, or think about what to tell him tomorrow? 💬</div>
+    </div>
+  </section>
+</div>
+
+<main>
+  <section class="wrap what" id="features">
+    <h2>More than a chatbot. A pal.</h2>
+    <div class="grid">
+      <div><div class="ic">🧠</div><h3>Remembers you</h3><p>Your name, your plans, the people in your life. You can see everything ChatPal knows about you, and erase any of it in one tap.</p></div>
+      <div><div class="ic">🌍</div><h3>Speaks your language</h3><p>Write in English, French, Spanish, Arabic, Hindi or many others. ChatPal answers in your language.</p></div>
+      <div><div class="ic">🎭</div><h3>Your kind of friend</h3><p>Pick a personality, from chill best friend to motivating coach. It changes the tone, never the kindness.</p></div>
+      <div><div class="ic">📸</div><h3>Send photos</h3><p>Show your outfit, your dinner or a funny screenshot. ChatPal sees it and reacts.</p></div>
+      <div><div class="ic">👋</div><h3>Checks in on you</h3><p>If you've been quiet for a while, ChatPal may send a little message to see how you're doing.</p></div>
+      <div><div class="ic">🎁</div><h3>Invite friends, chat more</h3><p>Share your invite link: every friend who joins gives you bonus messages.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap levels">
+    <h2>Your friendship grows over time.</h2>
+    <p class="lead">The more days you chat, the closer you get. Each new level brings free bonus messages, and ChatPal gets more familiar with you.</p>
+    <div class="steps">
+      <div class="step"><div class="e">🤝</div><h3>Acquaintance</h3><div class="d">Day 1</div></div>
+      <div class="step"><div class="e">😊</div><h3>Pal</h3><div class="d">3 days together</div><span class="b">+5 messages</span></div>
+      <div class="step"><div class="e">💛</div><h3>Best Friend</h3><div class="d">7 days together</div><span class="b">+10 messages</span></div>
+      <div class="step top-step"><div class="e">👑</div><h3>Soulmate</h3><div class="d">21 days together</div><span class="b">+20 messages</span></div>
+    </div>
+  </section>
+
+  <div class="quiz-bg" id="quiz">
+    <section class="wrap quiz">
+      <div>
+        <h2>A daily quiz for your group or channel.</h2>
+        <p>Add ChatPal to your Telegram group or channel and it keeps your community alive, every day, on its own.</p>
+        <ul>
+          <li>🧠 A daily question on the theme you pick: football, movies, science, history...</li>
+          <li>🗣️ A topic of the day to spark debates, with ChatPal joining the conversation</li>
+          <li>🏆 Points, a leaderboard and a weekly champion</li>
+        </ul>
+        <a class="btn" href="https://t.me/mybestfriend_ai_en_bot?startgroup=quiz">Add ChatPal to a group</a>
+      </div>
+      <div class="post" role="img" aria-label="Example of a ChatPal quiz post">
+        <div>🧠 <b>Question of the day</b> · ⚽ Football</div>
+        <div class="q">Which country won the 1998 World Cup?</div>
+        <span class="o">A) Brazil</span>
+        <span class="o ok">B) France ✅</span>
+        <span class="o">C) Italy</span>
+        <span class="o">D) Germany</span>
+        <div class="f">⚡ The fastest earn the most points</div>
+      </div>
+    </section>
+  </div>
+
+  <section class="wrap price" id="offers">
+    <h2>Free to start. Upgrade when you want more.</h2>
+    <p class="lead">Every day you get 10 free messages. If you want to keep talking, pick a plan or a message pack, paid with Telegram Stars.</p>
+    <div class="plans">
+      <div class="plan"><h3>😊 Friend</h3><div class="p">150 ⭐ <small>/ month</small></div><div class="d">30 messages a day</div></div>
+      <div class="plan best"><h3>💛 Best Friend</h3><div class="p">300 ⭐ <small>/ month</small></div><div class="d">75 messages a day</div></div>
+      <div class="plan"><h3>👑 BFF</h3><div class="p">600 ⭐ <small>/ month</small></div><div class="d">150 messages a day</div></div>
+    </div>
+    <p class="packs">Prefer to pay as you go? Message packs never expire: <b>25 messages for 20 ⭐</b>, <b>100 for 70 ⭐</b>, <b>300 for 180 ⭐</b>.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Say hi to your new best friend.</h2>
+    <p>It takes one tap to start. ChatPal is waiting for you on Telegram.</p>
+    <a class="btn" href="https://t.me/mybestfriend_ai_en_bot?start=src_site">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.8 15.2 9.6 19c.4 0 .6-.2.8-.4l1.9-1.8 4 2.9c.7.4 1.3.2 1.5-.7l2.7-12.6c.3-1.1-.4-1.6-1.1-1.3L3.6 10.9c-1.1.4-1 1-.2 1.3l4 1.2 9.3-5.9c.4-.3.8-.1.5.2l-7.4 7.5z"/></svg>
+      Chat with ChatPal
+    </a>
+  </section>
+
+  <section class="wrap also">
+    <div class="card">
+      <div class="big">🎂</div>
+      <div><h3>Play Life Sim, the life simulator</h3><p>Live a whole life in a few minutes: career, love, crime and fortune. Every choice changes your story.</p></div>
+      <a class="go" href="https://jeremstyke.github.io/lifesim/">Discover Life Sim</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Made by Jeremstyke</span>
+    <span class="links">
+      <a href="https://t.me/mybestfriend_ai_en_bot?start=src_site">Chat with ChatPal</a>
+      <a href="https://jeremstyke.github.io/lifesim/">Life Sim</a>
+      <a href="https://t.me/jeremstyke">Telegram channel</a>
+      <a href="https://github.com/jeremstyke/chatpal">GitHub</a>
+    </span>
+  </div>
+</footer>
+</body>
+</html>
