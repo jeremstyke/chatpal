@@ -5,7 +5,7 @@
 ### Your AI best friend on Telegram.
 
 Share your day, vent, laugh or ask for advice, in your own language.<br>
-ChatPal remembers what matters to you, and it can bring your group or channel to life with a daily quiz.
+ChatPal remembers what matters to you, checks on you, and plays games with you.
 
 [![Chat on Telegram](https://img.shields.io/badge/Chat%20on-Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/mybestfriend_ai_en_bot?start=src_github)
 [![Website](https://img.shields.io/badge/Website-ChatPal-2A7BE4?style=for-the-badge)](https://jeremstyke.github.io/chatpal/)
@@ -39,16 +39,6 @@ The more days you chat, the closer you get.
 | 💛 Best Friend | 7 days | +10 messages |
 | 👑 Soulmate | 21 days | +20 messages |
 
-## 🏆 Daily quiz for groups and channels
-
-Add ChatPal to your Telegram group or channel and it keeps your community alive on its own:
-
-- 🧠 A **daily question** on the theme you pick: football, movies, science, history...
-- 🗣️ A **topic of the day** to spark debates, with ChatPal joining the conversation
-- 🏆 **Points, a leaderboard** and a weekly champion
-
-👉 **[Add ChatPal to a group](https://t.me/mybestfriend_ai_en_bot?startgroup=quiz)** &nbsp; 👥 **[See it live in the ChatPal Hangout](https://t.me/chatpal_hangout)**
-
 ## ⭐ Offers
 
 10 free messages every day. Want more? Pay with Telegram Stars.
@@ -64,14 +54,13 @@ Add ChatPal to your Telegram group or channel and it keeps your community alive 
 ## 🛠️ Built with
 
 - **Telegram Bot API + Mini Apps**
-- **Claude AI**: conversations, memory and quiz questions
+- **Claude AI**: conversations and memory
 - **Supabase + Railway**: data and servers
 - **Telegram Stars**: payments
 
 ## 🔗 More from Jeremstyke
 
 - 🎂 **[Life Sim](https://github.com/jeremstyke/lifesim)**: live a whole life in a few minutes, on Telegram ([website](https://jeremstyke.github.io/lifesim/))
-- 👥 **[ChatPal Hangout](https://t.me/chatpal_hangout)**: the official group, hosted live by ChatPal
 - 📢 **[Jeremstyke on Telegram](https://t.me/jeremstyke)**: news and updates
 
 ---
