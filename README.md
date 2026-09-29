@@ -47,7 +47,7 @@ Add ChatPal to your Telegram group or channel and it keeps your community alive 
 - 🗣️ A **topic of the day** to spark debates, with ChatPal joining the conversation
 - 🏆 **Points, a leaderboard** and a weekly champion
 
-👉 **[Add ChatPal to a group](https://t.me/mybestfriend_ai_en_bot?startgroup=quiz)**
+👉 **[Add ChatPal to a group](https://t.me/mybestfriend_ai_en_bot?startgroup=quiz)** &nbsp; 👥 **[See it live in the ChatPal Hangout](https://t.me/chatpal_hangout)**
 
 ## ⭐ Offers
 
@@ -71,6 +71,7 @@ Add ChatPal to your Telegram group or channel and it keeps your community alive 
 ## 🔗 More from Jeremstyke
 
 - 🎂 **[Life Sim](https://github.com/jeremstyke/lifesim)**: live a whole life in a few minutes, on Telegram ([website](https://jeremstyke.github.io/lifesim/))
+- 👥 **[ChatPal Hangout](https://t.me/chatpal_hangout)**: the official group, hosted live by ChatPal
 - 📢 **[Jeremstyke on Telegram](https://t.me/jeremstyke)**: news and updates
 
 ---
