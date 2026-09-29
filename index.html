@@ -143,6 +143,8 @@
   footer { padding: 28px 0 40px; color: var(--soft); font-size: 14px; border-top: 1px solid #e3ecf8; }
   footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
   footer a { text-decoration: none; font-weight: 700; }
+  footer .langs { width: 100%; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  footer .langs strong { color: inherit; }
   footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 
   @media (max-width: 860px) {
@@ -156,6 +158,13 @@
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "ChatPal", "url": "https://jeremstyke.github.io/chatpal/", "image": "https://jeremstyke.github.io/chatpal/og.png", "description": "A free AI friend on Telegram: chat in your language, it remembers what matters to you, and it runs a daily quiz in groups and channels.", "applicationCategory": "CommunicationApplication", "operatingSystem": "Telegram", "isAccessibleForFree": true, "inLanguage": ["en", "fr", "es", "pt", "de", "it", "ru", "ar", "hi", "id", "tr"], "offers": [{"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD"}], "author": {"@type": "Person", "name": "Jeremstyke", "url": "https://github.com/jeremstyke", "sameAs": ["https://t.me/jeremstyke", "https://github.com/jeremstyke"]}, "sameAs": ["https://t.me/mybestfriend_ai_en_bot", "https://github.com/jeremstyke/chatpal"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is ChatPal free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You get 10 free messages every day, plus bonus messages as your friendship grows. For more, you can pick a monthly plan or a message pack paid with Telegram Stars."}}, {"@type": "Question", "name": "Does ChatPal remember me?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. ChatPal remembers your name, your plans and the people you talk about. You can see everything it knows about you, and erase any of it, in the ChatPal app."}}, {"@type": "Question", "name": "Which languages does ChatPal speak?", "acceptedAnswer": {"@type": "Answer", "text": "ChatPal answers in your language: English, French, Spanish, Portuguese, German, Italian, Russian, Arabic, Hindi, Indonesian, Turkish and many more."}}, {"@type": "Question", "name": "Can I add ChatPal to my group or channel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Add it as an admin and it posts a daily quiz and a topic of the day on the theme you choose, with points, a leaderboard and a weekly champion."}}, {"@type": "Question", "name": "Is ChatPal a real person?", "acceptedAnswer": {"@type": "Answer", "text": "No. ChatPal is an AI companion powered by Claude. It is a friendly presence to talk to, not a replacement for friends, family or professional help."}}, {"@type": "Question", "name": "Do I need to install anything?", "acceptedAnswer": {"@type": "Answer", "text": "No. ChatPal lives inside Telegram. Open the bot, tap Start and say hi."}}]}</script>
+<meta property="og:locale" content="en_US">
+<link rel="alternate" hreflang="en" href="https://jeremstyke.github.io/chatpal/">
+<link rel="alternate" hreflang="fr" href="https://jeremstyke.github.io/chatpal/fr/">
+<link rel="alternate" hreflang="es" href="https://jeremstyke.github.io/chatpal/es/">
+<link rel="alternate" hreflang="pt" href="https://jeremstyke.github.io/chatpal/pt/">
+<link rel="alternate" hreflang="ru" href="https://jeremstyke.github.io/chatpal/ru/">
+<link rel="alternate" hreflang="x-default" href="https://jeremstyke.github.io/chatpal/">
 </head>
 <body>
 <div class="hero-bg">
@@ -284,9 +293,11 @@
 <footer>
   <div class="wrap">
     <span>Made by Jeremstyke</span>
+    <span class="langs">🌐 <strong>English</strong> <a href="https://jeremstyke.github.io/chatpal/fr/" hreflang="fr" lang="fr">Français</a> <a href="https://jeremstyke.github.io/chatpal/es/" hreflang="es" lang="es">Español</a> <a href="https://jeremstyke.github.io/chatpal/pt/" hreflang="pt" lang="pt">Português</a> <a href="https://jeremstyke.github.io/chatpal/ru/" hreflang="ru" lang="ru">Русский</a></span>
     <span class="links">
       <a href="https://t.me/mybestfriend_ai_en_bot?start=src_site">Chat with ChatPal</a>
       <a href="https://jeremstyke.github.io/lifesim/">Life Sim</a>
+      <a href="https://jeremstyke.github.io/guides/telegram-quiz-bot/">Quiz bot guide</a>
       <a href="https://t.me/jeremstyke">Telegram channel</a>
       <a href="https://github.com/jeremstyke/chatpal">GitHub</a>
     </span>
