@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatPal : ami IA et chatbot gratuit sur Telegram | Ton meilleur ami IA</title>
+<meta name="description" content="ChatPal est un ami IA gratuit sur Telegram. Discute quand tu veux dans ta langue, il se souvient de ce qui compte pour toi et anime un quiz quotidien dans ton groupe ou ta chaîne. Sans téléchargement.">
+<meta name="keywords" content="ami IA, meilleur ami IA, compagnon IA, chatbot IA, bot Telegram, IA Telegram, ami virtuel, parler à une IA, bot quiz Telegram, quiz de groupe">
+<meta name="author" content="Jeremstyke">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#2A7BE4">
+<link rel="canonical" href="https://jeremstyke.github.io/chatpal/fr/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ChatPal">
+<meta property="og:url" content="https://jeremstyke.github.io/chatpal/fr/">
+<meta property="og:title" content="ChatPal : ton meilleur ami IA sur Telegram">
+<meta property="og:description" content="Discute quand tu veux dans ta langue. ChatPal se souvient de ce qui compte pour toi.">
+<meta property="og:image" content="https://jeremstyke.github.io/chatpal/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ChatPal : ton meilleur ami IA sur Telegram">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ChatPal : ton meilleur ami IA sur Telegram">
+<meta name="twitter:description" content="Discute quand tu veux dans ta langue. ChatPal se souvient de ce qui compte pour toi.">
+<meta name="twitter:image" content="https://jeremstyke.github.io/chatpal/og.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #EEF6FF;
+    --blue: #2A7BE4;
+    --navy: #14284B;
+    --mint: #DDF6EA;
+    --coral: #FF6B6B;
+    --ink: #172237;
+    --soft: #5B6B85;
+    --gold: #F5B400;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #fff; color: var(--ink); font: 400 17px/1.6 'Nunito', system-ui, sans-serif; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: 'Outfit', 'Nunito', sans-serif; line-height: 1.1; margin: 0; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; border-radius: 8px; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 22px; text-decoration: none; }
+  .brand span { font-size: 28px; }
+  .top nav a { margin-left: 22px; text-decoration: none; font-weight: 600; color: var(--soft); }
+  .top nav a:hover { color: var(--blue); }
+
+  /* Hero with a live conversation */
+  .hero-bg { background: var(--sky); }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 40px 24px 80px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 66px); font-weight: 700; color: var(--navy); }
+  .hero p { font-size: 20px; color: var(--soft); max-width: 28em; margin: 20px 0 32px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: #fff; text-decoration: none; font-weight: 800; font-size: 18px; padding: 16px 28px; border-radius: 999px; box-shadow: 0 10px 28px -12px var(--blue); transition: transform .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn svg { width: 22px; height: 22px; }
+  .btn.ghost { background: transparent; color: var(--blue); box-shadow: none; border: 2px solid var(--blue); }
+  .note { display: block; margin-top: 14px; font-size: 14px; color: var(--soft); }
+
+  .chat { background: #fff; border-radius: 28px; padding: 22px; box-shadow: 0 30px 60px -34px rgba(20,40,75,.45); max-width: 420px; justify-self: center; width: 100%; }
+  .chat-head { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #e8eef7; margin-bottom: 14px; }
+  .chat-av { width: 44px; height: 44px; border-radius: 50%; background: var(--sky); display: grid; place-items: center; font-size: 26px; }
+  .chat-name { font-weight: 800; }
+  .chat-status { font-size: 13px; color: #22a06b; }
+  .msg { max-width: 82%; padding: 10px 14px; border-radius: 18px; margin: 8px 0; font-size: 15px; line-height: 1.45; }
+  .msg.me { margin-left: auto; background: var(--blue); color: #fff; border-bottom-right-radius: 6px; }
+  .msg.pal { background: var(--mint); border-bottom-left-radius: 6px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .msg { opacity: 0; transform: translateY(8px); animation: pop .35s ease forwards; }
+    .msg:nth-of-type(2) { animation-delay: .9s; } .msg:nth-of-type(3) { animation-delay: 2.1s; }
+    .msg:nth-of-type(4) { animation-delay: 3.1s; } .msg:nth-of-type(5) { animation-delay: 4.3s; }
+    @keyframes pop { to { opacity: 1; transform: none; } }
+  }
+
+  /* What it does */
+  .what { padding: 80px 24px 40px; }
+  .what h2, .levels h2, .quiz h2, .price h2 { font-size: clamp(30px, 4vw, 44px); color: var(--navy); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-top: 40px; }
+  .grid .ic { font-size: 40px; }
+  .grid h3 { font-size: 21px; color: var(--navy); margin-top: 10px; }
+  .grid p { color: var(--soft); margin: 6px 0 0; }
+
+  /* Friendship levels: a real progression */
+  .levels { padding: 60px 24px; }
+  .levels .lead { color: var(--soft); max-width: 34em; margin: 12px 0 34px; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .step { border: 2px solid #e3ecf8; border-radius: 22px; padding: 20px; background: #fff; }
+  .step .e { font-size: 38px; }
+  .step h3 { font-size: 20px; margin-top: 8px; color: var(--navy); }
+  .step .d { font-size: 14px; color: var(--soft); margin-top: 4px; }
+  .step .b { display: inline-block; margin-top: 10px; font-weight: 800; font-size: 13px; color: #1a8a5a; background: var(--mint); border-radius: 999px; padding: 3px 10px; }
+  .step.top-step { border-color: var(--gold); }
+
+  /* Quiz for groups and channels */
+  .quiz-bg { background: var(--navy); color: #fff; }
+  .quiz { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 72px 24px; }
+  .quiz h2 { color: #fff; }
+  .quiz p { color: #c3d0e6; }
+  .quiz ul { padding: 0; list-style: none; margin: 20px 0 30px; }
+  .quiz li { margin: 10px 0; color: #e3eaf6; }
+  .post { background: #1F3A66; border-radius: 22px; padding: 20px; font-size: 15px; }
+  .post .q { font-weight: 800; margin: 8px 0 12px; }
+  .post .o { display: block; background: #2A4C82; border-radius: 12px; padding: 9px 12px; margin: 6px 0; }
+  .post .o.ok { background: #1f8a5b; }
+  .post .f { font-size: 13px; color: #c3d0e6; margin-top: 10px; font-style: italic; }
+
+  /* Offers */
+  .price { padding: 80px 24px 40px; }
+  .price .lead { color: var(--soft); margin: 12px 0 34px; max-width: 34em; }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .plan { border: 2px solid #e3ecf8; border-radius: 22px; padding: 22px; }
+  .plan h3 { font-size: 22px; color: var(--navy); }
+  .plan .p { font-family: 'Outfit', sans-serif; font-size: 30px; font-weight: 700; margin: 8px 0 2px; }
+  .plan .p small { font-size: 15px; color: var(--soft); font-weight: 600; }
+  .plan .d { color: var(--soft); font-size: 15px; }
+  .plan.best { border-color: var(--blue); background: var(--sky); }
+  .packs { margin-top: 18px; color: var(--soft); font-size: 15px; }
+  .packs b { color: var(--ink); }
+
+  .cta { text-align: center; padding: 72px 24px; }
+  .cta h2 { font-size: clamp(30px, 4vw, 46px); color: var(--navy); }
+  .cta p { color: var(--soft); margin: 12px auto 30px; max-width: 30em; }
+
+  .also { padding: 20px 24px 64px; }
+  .card { display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center; border-radius: 24px; padding: 26px; background: #2A1450; color: #fff; }
+  .card .big { font-size: 52px; }
+  .card h3 { font-size: 24px; }
+  .card p { margin: 4px 0 0; color: #CFC2EE; }
+  .card a.go { text-decoration: none; font-weight: 800; background: #FFB21E; color: #2A1450; padding: 12px 20px; border-radius: 999px; white-space: nowrap; }
+
+
+  .faq { padding: 40px 24px 72px; }
+  .faq h2 { font-size: clamp(28px, 3.6vw, 40px); color: var(--navy); margin-bottom: 20px; }
+  .faq details { border-bottom: 1px solid #e3ecf8; padding: 16px 0; }
+  .faq summary { cursor: pointer; font-weight: 800; font-size: 18px; color: var(--navy); }
+  .faq p { margin: 10px 0 0; color: var(--soft); max-width: 44em; }
+  footer { padding: 28px 0 40px; color: var(--soft); font-size: 14px; border-top: 1px solid #e3ecf8; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
+  footer a { text-decoration: none; font-weight: 700; }
+  footer .langs { width: 100%; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  footer .langs strong { color: inherit; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+
+  @media (max-width: 860px) {
+    .hero, .quiz { grid-template-columns: 1fr; }
+    .top nav { display: none; }
+    .grid, .plans { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .card { grid-template-columns: 1fr; text-align: center; }
+    .card .go { justify-self: center; }
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "ChatPal", "url": "https://jeremstyke.github.io/chatpal/fr/", "image": "https://jeremstyke.github.io/chatpal/og.png", "description": "Un ami IA gratuit sur Telegram : discute dans ta langue, il se souvient de ce qui compte pour toi et anime un quiz quotidien dans les groupes et chaînes.", "applicationCategory": "CommunicationApplication", "operatingSystem": "Telegram", "isAccessibleForFree": true, "inLanguage": ["en", "fr", "es", "pt", "de", "it", "ru", "ar", "hi", "id", "tr"], "offers": [{"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD"}], "author": {"@type": "Person", "name": "Jeremstyke", "url": "https://github.com/jeremstyke", "sameAs": ["https://t.me/jeremstyke", "https://github.com/jeremstyke"]}, "sameAs": ["https://t.me/mybestfriend_ai_en_bot", "https://github.com/jeremstyke/chatpal"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ChatPal est-il gratuit ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Tu as 10 messages gratuits chaque jour, plus des messages bonus à mesure que votre amitié grandit. Pour plus, choisis un abonnement mensuel ou un pack de messages payé en étoiles Telegram."}}, {"@type": "Question", "name": "ChatPal se souvient-il de moi ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. ChatPal retient ton prénom, tes projets et les personnes dont tu parles. Tu peux voir tout ce qu'il sait de toi, et l'effacer, dans l'application ChatPal."}}, {"@type": "Question", "name": "Quelles langues parle ChatPal ?", "acceptedAnswer": {"@type": "Answer", "text": "ChatPal répond dans ta langue : anglais, français, espagnol, portugais, allemand, italien, russe, arabe, hindi, indonésien, turc et bien d'autres."}}, {"@type": "Question", "name": "Puis-je ajouter ChatPal à mon groupe ou ma chaîne ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Ajoute-le comme administrateur : il publie chaque jour un quiz et un sujet du jour sur le thème de ton choix, avec des points, un classement et un champion de la semaine."}}, {"@type": "Question", "name": "ChatPal est-il une vraie personne ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. ChatPal est un compagnon IA propulsé par Claude. C'est une présence amicale pour discuter, pas un remplaçant de tes amis, de ta famille ou d'une aide professionnelle."}}, {"@type": "Question", "name": "Faut-il installer quelque chose ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. ChatPal vit dans Telegram. Ouvre le bot, appuie sur Démarrer et dis bonjour."}}]}</script>
+<meta property="og:locale" content="fr_FR">
+<link rel="alternate" hreflang="en" href="https://jeremstyke.github.io/chatpal/">
+<link rel="alternate" hreflang="fr" href="https://jeremstyke.github.io/chatpal/fr/">
+<link rel="alternate" hreflang="es" href="https://jeremstyke.github.io/chatpal/es/">
+<link rel="alternate" hreflang="pt" href="https://jeremstyke.github.io/chatpal/pt/">
+<link rel="alternate" hreflang="ru" href="https://jeremstyke.github.io/chatpal/ru/">
+<link rel="alternate" hreflang="x-default" href="https://jeremstyke.github.io/chatpal/">
+</head>
+<body>
+<div class="hero-bg">
+  <header class="wrap top">
+    <a class="brand" href="#"><span>🤖</span> ChatPal</a>
+    <nav>
+      <a href="#features">Fonctionnalités</a>
+      <a href="#quiz">Quiz de groupe</a>
+      <a href="#offers">Offres</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://jeremstyke.github.io/lifesim/fr/">Life Sim</a>
+    </nav>
+  </header>
+
+  <section class="wrap hero">
+    <div>
+      <h1>Un ami toujours là pour parler.</h1>
+      <p>ChatPal est un meilleur ami IA sur Telegram. Raconte ta journée, vide ton sac, ris ou demande conseil, dans ta propre langue. Il se souvient de ce qui compte pour toi.</p>
+      <a class="btn" href="https://t.me/mybestfriend_ai_en_bot?start=src_site">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.8 15.2 9.6 19c.4 0 .6-.2.8-.4l1.9-1.8 4 2.9c.7.4 1.3.2 1.5-.7l2.7-12.6c.3-1.1-.4-1.6-1.1-1.3L3.6 10.9c-1.1.4-1 1-.2 1.3l4 1.2 9.3-5.9c.4-.3.8-.1.5.2l-7.4 7.5z"/></svg>
+        Discuter avec ChatPal
+      </a>
+      <span class="note">Gratuit, 10 messages par jour. Fonctionne directement dans Telegram.</span>
+    </div>
+
+    <div class="chat" role="img" aria-label="Un exemple de conversation avec ChatPal">
+      <div class="chat-head">
+        <div class="chat-av">🤖</div>
+        <div><div class="chat-name">ChatPal</div><div class="chat-status">en ligne</div></div>
+      </div>
+      <div class="msg me">pfff, journée pourrie au boulot 😩</div>
+      <div class="msg pal">Oh non 😕 C'était la présentation qui te stressait lundi ?</div>
+      <div class="msg me">oui... mon chef m'a coupé la parole devant tout le monde</div>
+      <div class="msg pal">C'est vraiment frustrant, surtout après tout le travail que tu y as mis. Tu veux d'abord vider ton sac, ou réfléchir à ce que tu vas lui dire demain ? 💬</div>
+    </div>
+  </section>
+</div>
+
+<main>
+  <section class="wrap what" id="features">
+    <h2>Plus qu'un chatbot. Un pote.</h2>
+    <div class="grid">
+      <div><div class="ic">🧠</div><h3>Il se souvient de toi</h3><p>Ton prénom, tes projets, les gens de ta vie. Tu peux voir tout ce que ChatPal sait de toi, et effacer ce que tu veux d'un geste.</p></div>
+      <div><div class="ic">🌍</div><h3>Il parle ta langue</h3><p>Écris en français, anglais, espagnol, arabe, hindi ou bien d'autres langues. ChatPal te répond dans ta langue.</p></div>
+      <div><div class="ic">🎭</div><h3>L'ami qu'il te faut</h3><p>Choisis une personnalité, du meilleur pote détendu au coach motivant. Ça change le ton, jamais la gentillesse.</p></div>
+      <div><div class="ic">📸</div><h3>Envoie des photos</h3><p>Montre ta tenue, ton dîner ou une capture drôle. ChatPal la voit et réagit.</p></div>
+      <div><div class="ic">👋</div><h3>Il prend de tes nouvelles</h3><p>Si tu ne donnes plus signe de vie depuis un moment, ChatPal peut t'envoyer un petit message pour savoir comment tu vas.</p></div>
+      <div><div class="ic">🎁</div><h3>Invite tes amis, discute plus</h3><p>Partage ton lien d'invitation : chaque ami qui arrive te rapporte des messages bonus.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap levels">
+    <h2>Votre amitié grandit avec le temps.</h2>
+    <p class="lead">Plus vous discutez de jours, plus vous devenez proches. Chaque nouveau niveau offre des messages bonus, et ChatPal devient plus familier avec toi.</p>
+    <div class="steps">
+      <div class="step"><div class="e">🤝</div><h3>Connaissance</h3><div class="d">Jour 1</div></div>
+      <div class="step"><div class="e">😊</div><h3>Pote</h3><div class="d">3 jours ensemble</div><span class="b">+5 messages</span></div>
+      <div class="step"><div class="e">💛</div><h3>Meilleur ami</h3><div class="d">7 jours ensemble</div><span class="b">+10 messages</span></div>
+      <div class="step top-step"><div class="e">👑</div><h3>Âme sœur</h3><div class="d">21 jours ensemble</div><span class="b">+20 messages</span></div>
+    </div>
+  </section>
+
+  <div class="quiz-bg" id="quiz">
+    <section class="wrap quiz">
+      <div>
+        <h2>Un quiz quotidien pour ton groupe ou ta chaîne.</h2>
+        <p>Ajoute ChatPal à ton groupe ou ta chaîne Telegram, et il fait vivre ta communauté tous les jours, tout seul.</p>
+        <ul>
+          <li>🧠 Une question par jour sur le thème de ton choix : football, cinéma, sciences, histoire...</li>
+          <li>🗣️ Un sujet du jour pour lancer les débats, avec ChatPal qui participe à la conversation</li>
+          <li>🏆 Des points, un classement et un champion de la semaine</li>
+        </ul>
+        <a class="btn" href="https://t.me/mybestfriend_ai_en_bot?startgroup=quiz">Ajouter ChatPal à un groupe</a>
+      </div>
+      <div class="post" role="img" aria-label="Exemple de question de quiz ChatPal">
+        <div>🧠 <b>Question du jour</b> · ⚽ Football</div>
+        <div class="q">Quel pays a gagné la Coupe du monde 1998 ?</div>
+        <span class="o">A) Brésil</span>
+        <span class="o ok">B) France ✅</span>
+        <span class="o">C) Italie</span>
+        <span class="o">D) Allemagne</span>
+        <div class="f">⚡ Les plus rapides gagnent le plus de points</div>
+      </div>
+    </section>
+  </div>
+
+  <section class="wrap price" id="offers">
+    <h2>Gratuit pour commencer. Passe à la vitesse supérieure quand tu veux.</h2>
+    <p class="lead">Chaque jour, tu as 10 messages gratuits. Pour continuer à discuter, choisis un abonnement ou un pack de messages, payé en étoiles Telegram.</p>
+    <div class="plans">
+      <div class="plan"><h3>😊 Friend</h3><div class="p">150 ⭐ <small>/ mois</small></div><div class="d">30 messages par jour</div></div>
+      <div class="plan best"><h3>💛 Best Friend</h3><div class="p">300 ⭐ <small>/ mois</small></div><div class="d">75 messages par jour</div></div>
+      <div class="plan"><h3>👑 BFF</h3><div class="p">600 ⭐ <small>/ mois</small></div><div class="d">150 messages par jour</div></div>
+    </div>
+    <p class="packs">Tu préfères payer à l'usage ? Les packs de messages n'expirent jamais : <b>25 messages pour 20 ⭐</b>, <b>100 pour 70 ⭐</b>, <b>300 pour 180 ⭐</b>.</p>
+  </section>
+
+  <section class="wrap faq" id="faq">
+    <h2>Questions fréquentes</h2>
+    <details><summary>ChatPal est-il gratuit ?</summary><p>Oui. Tu as 10 messages gratuits chaque jour, plus des messages bonus à mesure que votre amitié grandit. Pour plus, choisis un abonnement mensuel ou un pack de messages payé en étoiles Telegram.</p></details>
+    <details><summary>ChatPal se souvient-il de moi ?</summary><p>Oui. ChatPal retient ton prénom, tes projets et les personnes dont tu parles. Tu peux voir tout ce qu'il sait de toi, et l'effacer, dans l'application ChatPal.</p></details>
+    <details><summary>Quelles langues parle ChatPal ?</summary><p>ChatPal répond dans ta langue : anglais, français, espagnol, portugais, allemand, italien, russe, arabe, hindi, indonésien, turc et bien d'autres.</p></details>
+    <details><summary>Puis-je ajouter ChatPal à mon groupe ou ma chaîne ?</summary><p>Oui. Ajoute-le comme administrateur : il publie chaque jour un quiz et un sujet du jour sur le thème de ton choix, avec des points, un classement et un champion de la semaine.</p></details>
+    <details><summary>ChatPal est-il une vraie personne ?</summary><p>Non. ChatPal est un compagnon IA propulsé par Claude. C'est une présence amicale pour discuter, pas un remplaçant de tes amis, de ta famille ou d'une aide professionnelle.</p></details>
+    <details><summary>Faut-il installer quelque chose ?</summary><p>Non. ChatPal vit dans Telegram. Ouvre le bot, appuie sur Démarrer et dis bonjour.</p></details>
+  </section>
+
+  <section class="cta">
+    <h2>Dis bonjour à ton nouveau meilleur ami.</h2>
+    <p>Un geste suffit pour commencer. ChatPal t'attend sur Telegram.</p>
+    <a class="btn" href="https://t.me/mybestfriend_ai_en_bot?start=src_site">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.8 15.2 9.6 19c.4 0 .6-.2.8-.4l1.9-1.8 4 2.9c.7.4 1.3.2 1.5-.7l2.7-12.6c.3-1.1-.4-1.6-1.1-1.3L3.6 10.9c-1.1.4-1 1-.2 1.3l4 1.2 9.3-5.9c.4-.3.8-.1.5.2l-7.4 7.5z"/></svg>
+      Discuter avec ChatPal
+    </a>
+  </section>
+
+  <section class="wrap also">
+    <div class="card">
+      <div class="big">🎂</div>
+      <div><h3>Joue à Life Sim, le simulateur de vie</h3><p>Vis une vie entière en quelques minutes : carrière, amour, crime et fortune. Chaque choix change ton histoire.</p></div>
+      <a class="go" href="https://jeremstyke.github.io/lifesim/fr/">Découvrir Life Sim</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Créé par Jeremstyke</span>
+    <span class="langs">🌐 <a href="https://jeremstyke.github.io/chatpal/" hreflang="en" lang="en">English</a> <strong>Français</strong> <a href="https://jeremstyke.github.io/chatpal/es/" hreflang="es" lang="es">Español</a> <a href="https://jeremstyke.github.io/chatpal/pt/" hreflang="pt" lang="pt">Português</a> <a href="https://jeremstyke.github.io/chatpal/ru/" hreflang="ru" lang="ru">Русский</a></span>
+    <span class="links">
+      <a href="https://t.me/mybestfriend_ai_en_bot?start=src_site">Discuter avec ChatPal</a>
+      <a href="https://jeremstyke.github.io/lifesim/fr/">Life Sim</a>
+      <a href="https://t.me/jeremstyke">Chaîne Telegram</a>
+      <a href="https://github.com/jeremstyke/chatpal">GitHub</a>
+    </span>
+  </div>
+</footer>
+</body>
+</html>
