@@ -70,3 +70,11 @@ The more days you chat, the closer you get.
 Made with ❤️ by **Jeremstyke** · © All rights reserved
 
 </div>
+
+---
+
+### ⚽ Also by @jeremstyke: Daily Score
+
+Guess the score of one big football match a day, climb the rankings and play leagues with your friends. Free, 9 languages, no betting.
+
+👉 [Play Daily Score](https://dailyscoreapp.com/?src=github_chatpal) · [Play on Telegram](https://t.me/DailyScorefootbot?start=src_github_chatpal)
